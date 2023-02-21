@@ -21,7 +21,7 @@ Implémenter un mappeur-SNPcaller de reads sur génome de référence. Il n'y au
     -> `index.py` est spécifique aux méthodes du FM-index. (si jamais on veut utiliser une autre méthode d'indexation, on utilise un autre fichier)
 
 
-- [] Mapping
+- [x] Mapping
 
     Programme `map.py` mapper l'ensemble des reads sur un génome de référence.
 
@@ -38,7 +38,7 @@ Implémenter un mappeur-SNPcaller de reads sur génome de référence. Il n'y au
     - fonction `print_mapping` qui va afficher le mapping d'un ou des reads par rapport au génome de référence.
     - fonction `SNP_caller` qui va énumérer le nombre de SNP avec un minimum d'abondance en comparant les reads mappés et mettre en output un fichier vcf.
 
-- [ ] Fichier VCF
+- [x] Fichier VCF
 
     Au début nous devrons indiquer plusieurs informations : le nom du fichier du génome de référence, nom du fichier contenant les reads, le k, le max hamming, le minimum d'abondance.
     Devra contenir comme information pour chacun des SNP:
