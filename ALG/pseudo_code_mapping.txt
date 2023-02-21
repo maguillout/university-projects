@@ -1,0 +1,104 @@
+Fonction mapping_read:
+	Aligne le read sur le génome.
+	input: 
+		- k : nombre de lettres du kmer
+		- r : le read à aligner
+		- g : genome
+		- max_hamming : nbre max de substitutions possibles
+	output:
+		- position du read sur le génome
+
+
+Code:
+
+	list_kmers = kmer_list(k,r)
+	positions_testees = []
+
+	for i in range(len(list_kmers)):
+		# i correspond aussi la position du kmer dans le read
+		k_mer = list_kmers[i]
+		occurences = get_occurence(k_mer,g, fmi)
+		nb_min_substitions = max_hamming + 1
+		position_mapping = 0		
+
+		for o in occurences:
+			pos = o-i #position du kmer par rapport au génome, on se décale de i
+			if pos not in positions_testees:
+				partie_g = g[pos:pos+len(r)]
+				nb_substitutions = compare(partie_g,k_mer) #compte le nb de différences entre les deux chaînes
+				if nb_substitutions < nb_min_substitions:
+					nb_min_substitions = nb_substitutions
+					position_mapping = pos
+
+	if nb_min_substitions = max_hamming + 1 :
+		return ("ce read ne peut pas s'aligner sur le génome")
+	else:
+		return(position_mapping)
+
+
+
+
+
+
+
+	
+	k_mer = r[:k] #les k premières lettres de r
+
+	occurences = get_occurence(k_mer,g, fmi) #voir tp BWT, cela rend une liste de positions
+	
+
+	
+
+
+
+
+
+	for o in occurences:
+
+
+
+		 #cf BWT
+
+		
+			position_mapping = o
+
+
+
+
+Fonction kmer_list:
+	Retourne la liste des kmers du read	
+
+	input: k : taille du kmer
+			r : read
+
+	output: la liste des kmer du read r
+
+	Code:
+	list = []
+	for i in range(len(r)-k+2):
+		k_mer = r[i:i+k]
+		list.append(k_mer)
+	return list
+
+
+Fonction mapping readS:
+	Retourne la liste des positions des reads sur le génome
+
+	input:
+		- list : la liste des reads
+		- g : le génome
+
+	output:
+		- read_position : le dictionnaire qui stoke pour chaque read, sa position sur le génome (de manière à ce qu'il y ait le moins de substitutions)
+
+	code:
+
+	read_position = {}
+	for r in list():
+		read_position[r] = mapping_read(r)
+	return read_position
+
+
+
+
+
