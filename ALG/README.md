@@ -1,4 +1,7 @@
-# To do list
+Sequence Algorithmics - M2 Bioinfo - 2020
+
+Lemée Pierre, Guillout Maëlle
+
 
 ## But du projet
 
